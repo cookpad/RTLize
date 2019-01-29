@@ -11,7 +11,7 @@ module Rtlize
       # Support Sprockets 4
       if app.assets.respond_to?(:register_transformer)
         app.assets.register_mime_type 'text/css', extensions: ['.css'], charset: :css
-        app.assets.register_postprocessor 'text/css', 'text/css', Rtlize::RtlProcessor
+        app.assets.register_postprocessor 'text/css', Rtlize::RtlProcessor
       end
 
       # Support Sprockets 2, 3
