@@ -8,7 +8,6 @@ module Rtlize
     config.rtlize.rtl_locales  = Rtlize.rtl_locales
     
     config.assets.configure do |assets|
-      binding.pry
       # Support Sprockets 3,4
       if assets.respond_to?(:register_transformer)
         assets.register_mime_type 'text/css', extensions: ['.css'], charset: :css
