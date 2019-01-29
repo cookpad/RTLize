@@ -2,7 +2,7 @@ require 'rtlize/helpers'
 require 'rtlize/rtl_processor'
 
 module Rtlize
-  class Railtie < Rails::Application
+  class Railtie < ::Rails::Application
     config.rtlize = ActiveSupport::OrderedOptions.new
     config.rtlize.rtl_selector = Rtlize.rtl_selector
     config.rtlize.rtl_locales  = Rtlize.rtl_locales
