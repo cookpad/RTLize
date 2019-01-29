@@ -6,7 +6,7 @@ module Rtlize
     config.rtlize = ActiveSupport::OrderedOptions.new
     config.rtlize.rtl_selector = Rtlize.rtl_selector
     config.rtlize.rtl_locales  = Rtlize.rtl_locales
-    
+
     config.assets.configure do |assets|
       # Support Sprockets 3,4
       if assets.respond_to?(:register_transformer)
