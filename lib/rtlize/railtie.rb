@@ -2,24 +2,24 @@ require 'rtlize/helpers'
 require 'rtlize/rtl_processor'
 
 module Rtlize
-  class Railtie < ::Rails::Railtie
+  class Railtie < Rails::Application
     config.rtlize = ActiveSupport::OrderedOptions.new
     config.rtlize.rtl_selector = Rtlize.rtl_selector
     config.rtlize.rtl_locales  = Rtlize.rtl_locales
-
-    initializer "rtlize.railtie", :after => "sprockets.environment" do |app|
+    
+    config.assets.configure do |assets|
       binding.pry
       # Support Sprockets 3,4
-      if app.assets.respond_to?(:register_transformer)
-        app.assets.register_mime_type 'text/css', extensions: ['.css'], charset: :css
-        app.assets.register_postprocessor 'text/css', Rtlize::RtlProcessor
+      if assets.respond_to?(:register_transformer)
+        assets.register_mime_type 'text/css', extensions: ['.css'], charset: :css
+        assets.register_postprocessor 'text/css', Rtlize::RtlProcessor
       end
 
       # Support Sprockets 2
-      if app.assets.respond_to?(:register_engine)
+      if assets.respond_to?(:register_engine)
         args = ['.css', Rtlize::RtlProcessor]
         args << { mime_type: 'text/css', silence_deprecation: true } if Sprockets::VERSION.start_with?("3")
-        app.assets.register_engine(*args)
+        assets.register_engine(*args)
       end
 
       Rtlize.rtl_selector = config.rtlize.rtl_selector
