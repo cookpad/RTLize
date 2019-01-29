@@ -1,6 +1,6 @@
 = RTLize
 
-{<img src="https://travis-ci.org/maljub01/RTLize.png?branch=master" alt="Build Status" />}[https://travis-ci.org/maljub01/RTLize]
+[![Build Status](https://travis-ci.org/cookpad/RTLize.svg?branch=master)](https://travis-ci.org/cookpad/RTLize)
 
 RTLize allows you to write your stylesheets for left-to-right (LTR) layouts and have them automatically work for right-to-left (RTL) layouts as well. It does this by mirroring all the properties and values to their RTL equivalent.
 
