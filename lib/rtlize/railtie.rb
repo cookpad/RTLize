@@ -8,7 +8,7 @@ module Rtlize
     config.rtlize.rtl_locales  = Rtlize.rtl_locales
 
     config.assets.configure do |env|
-      # Support Sprockets 3,4
+      # Support Sprockets 3, 4
       if env.respond_to?(:register_transformer)
         env.register_mime_type 'text/css', extensions: ['.css'], charset: :css
         env.register_postprocessor 'text/css', Rtlize::RtlProcessor
